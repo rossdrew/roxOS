@@ -1,11 +1,27 @@
-HEX_TABLE:
-    db "0123456789ABCDEF", 0
+[BITS 16]               ;Assembler : 16 bit code
+[ORG 0x7C00]            ;Assembler : Location of code in memory
+
+CALL PrintWelcome
+CALL HexToChar
+MOV SI, STRING
+CALL PrintString
+JMP $                   ;Infinite loop, hang it here.
+
+%include "../hello_world/print_string.asm"
+
+; --------------------------------------
+; Print Welcome message
+; --------------------------------------
+PrintWelcome:
+ MOV SI, GreetingString  
+ CALL PrintString        
+RET
 
 HexToChar:
     ;push ax ;save the registers state - is this even needed while using CALL?
     ;push bx
 
-    lea   bx, [HEX_TABLE]
+    lea   bx, [HexTable]
     mov   ax, dx
 
     mov   ah, al            ;two copies of the byte
@@ -22,6 +38,20 @@ HexToChar:
     ;pop bx   ;needed while using CALL?
     ;pop ax
 RET
+
+;Data
+GreetingString db 'Loading RoxOS [DEBUG]...', 0     ;Null terminated string
+HexTable db "0123456789ABCDEF", 0
+
+; --------------------------------------
+; Create the bootsector structure of 512 
+; bits and signature.
+; - PLACEHOLDER LABEL ONLY -
+; --------------------------------------
+CreateBootSector:
+ TIMES 510 - ($ - $$) db 0          ;Fill with 0s
+ DW 0xAA55                          ;Add signature
+
 
 section .bss ;------------------------- SECTION: Block Started by Symbol 
 

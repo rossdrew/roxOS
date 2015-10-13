@@ -2,9 +2,15 @@
 [ORG 0x7C00]            ;Assembler : Location of code in memory
 
 CALL PrintWelcome
-CALL HexToChar
-MOV SI, STRING
-CALL PrintString
+
+;Test prints, should print "OO78FF"
+MOV DX, 0x00
+CALL PrintHexValue
+MOV DX, 0x78
+CALL PrintHexValue
+MOV DX, 0xFF
+CALL PrintHexValue
+
 JMP $                   ;Infinite loop, hang it here.
 
 %include "../hello_world/print_string.asm"
@@ -17,6 +23,19 @@ PrintWelcome:
  CALL PrintString        
 RET
 
+; --------------------------------------
+; Print debug hex value
+; --------------------------------------
+PrintHexValue: 
+ CALL HexToChar
+ MOV SI, STRING
+ CALL PrintString
+RET
+
+; --------------------------------------
+; Convert byte to ASCII hex string
+;  DX = Byte to print
+; --------------------------------------
 HexToChar:
     ;push ax ;save the registers state - is this even needed while using CALL?
     ;push bx
@@ -35,7 +54,7 @@ HexToChar:
     xchg  ah, al            ;put AH and AL back in the correct order
     mov   [bx], ax          ;append the new character to the string of bytes
 
-    ;pop bx   ;needed while using CALL?
+    ;pop bx   ;Restore registers state - needed while using CALL?
     ;pop ax
 RET
 

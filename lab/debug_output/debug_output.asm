@@ -33,7 +33,7 @@ RET
 ; --------------------------------------
 PrintHexValue: 
  CALL HexToChar
- MOV SI, STRING
+ MOV SI, HexString
  CALL PrintString
 RET
 
@@ -55,7 +55,7 @@ HexToChar:
     xchg  ah, al            ;Put char in AH, move on to AL
     xlat                    ;2. convert AL to the character at index AL in the TABLE in BX
 
-    lea   bx, [STRING]      ;with the output string...
+    lea   bx, [HexString]   ;with the output string...
     xchg  ah, al            ;put AH and AL back in the correct order
     mov   [bx], ax          ;append the new character to the string of bytes
 
@@ -66,6 +66,7 @@ RET
 ;Data
 GreetingString db 'Loading RoxOS [DEBUG - Test Bytes]...', 0     ;Null terminated string
 HexTable db "0123456789ABCDEF", 0
+HexString db '' , 0
 
 ; --------------------------------------
 ; Create the bootsector structure of 512 
@@ -75,9 +76,3 @@ HexTable db "0123456789ABCDEF", 0
 CreateBootSector:
  TIMES 510 - ($ - $$) db 0          ;Fill with 0s
  DW 0xAA55                          ;Add signature
-
-
-section .bss ;------------------------- SECTION: Block Started by Symbol 
-
-STRING:
-    resb  50                ; reserve 50 bytes for the string

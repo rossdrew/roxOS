@@ -2,18 +2,23 @@
 [ORG 0x7C00]            ;Assembler : Location of code in memory
 
 CALL PrintWelcome
+CALL PrintNewline
 
-;Test prints, should print "OO78FF"
-MOV DX, 0x00
+MOV DX, 0x00        ; TEST: Print '00'
 CALL PrintHexValue
-MOV DX, 0x78
-CALL PrintHexValue
-MOV DX, 0xFF
-CALL PrintHexValue
+CALL PrintNewline
 
-JMP $                   ;Infinite loop, hang it here.
+MOV DX, 0x78        ; TEST: Print '78'
+CALL PrintHexValue
+CALL PrintNewline
 
-%include "../hello_world/print_string.asm"
+MOV DX, 0xFF        ; TEST: Print 'FF'
+CALL PrintHexValue
+CALL PrintNewline
+
+JMP $               ;Infinite loop, hang it here.
+
+%include "../common/printing.asm"
 
 ; --------------------------------------
 ; Print Welcome message
@@ -59,7 +64,7 @@ HexToChar:
 RET
 
 ;Data
-GreetingString db 'Loading RoxOS [DEBUG]...', 0     ;Null terminated string
+GreetingString db 'Loading RoxOS [DEBUG - Test Bytes]...', 0     ;Null terminated string
 HexTable db "0123456789ABCDEF", 0
 
 ; --------------------------------------

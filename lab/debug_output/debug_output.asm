@@ -30,6 +30,7 @@ RET
 
 ; --------------------------------------
 ; Print debug hex value
+;  DX = Byte to print
 ; --------------------------------------
 PrintHexValue: 
  CALL HexToChar

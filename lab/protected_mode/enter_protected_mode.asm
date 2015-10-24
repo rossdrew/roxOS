@@ -4,7 +4,7 @@
 ; Switch to protected mode
 ; ------------------------
 switch_to_pm :
- cli ; We must switch of interrupts until we have set -up the protected mode interrupt
+ cli                        ; Switch off interrupts
 
  lgdt [ gdt_descriptor ]    ; Load GDT
  mov eax, cr0               ; Swtich to protected mode = set first byte of CR0 (Control Register)

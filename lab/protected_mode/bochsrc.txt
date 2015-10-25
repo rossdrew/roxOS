@@ -1,0 +1,2 @@
+floppya: 1_44=C:\Users\Ross\Code\git\roxOS\lab\protected_mode\protected_mode.img, status=inserted
+boot: a

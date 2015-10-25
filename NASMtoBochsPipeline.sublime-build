@@ -1,0 +1,10 @@
+{
+	"shell":true,
+	"windows":
+	{
+	   "cmd": ["C:\\Users\\Ross\\AppData\\Local\\nasm\\nasm", "-f", "bin", "$file", "-o", "$file_base_name.img", 
+	      "&", "C:\\Program Files (x86)\\Bochs-2.6.8\\bochs.exe", "-f", "$file_path\\bochsrc.txt"]
+	},
+
+	"linux":{}
+}

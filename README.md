@@ -1,6 +1,6 @@
 #roxOS 
 <br/>
-Some experimentations into what makes an operating systems.</br>
+Some experimentations into what makes an operating system.</br>
 <br/>
 An interesting project -I thought- to get me back up to speed with assembly and perhaps C and C++ (and as it turns out, NASM, Bochs and Sublime as well).  Most of the examples taken from "<i>Writing a Simple Operating System from Scratch</i>" by <a href="https://github.com/tpn/pdfs/blob/master/Writing%20a%20Simple%20Operating%20System%20from%20Scratch%20-%20Nick%20Blundell%20-%20Dec%202010.pdf">Nick Blundell</a>.<br/>  Once I get the basics down, I'm going to take a look at MITs course <a href="https://pdos.csail.mit.edu/6.828/2011/schedule.html">videos</a> on OS's
 <br/>

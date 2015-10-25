@@ -14,6 +14,6 @@ At this point it is just a lab.  It's more reading than actual code for now. As 
 </ol>
 
 #Toolset
-I am building with <a href="http://www.nasm.us/">NASM</a> (<i>v2.11.08</i>) assemlber and running in <a href="http://bochs.sourceforge.net/">Bochs</a> (<i>v2.6.8</i>) x86 emulator, my <i>bochsrc</a> files are also included in this repo.  Thinking about giving the <a href="http://wiki.qemu.org/Main_Page">Qemu</a> emulator a try soon.<br/>
+I am building with <a href="http://www.nasm.us/">NASM</a> (<i>v2.11.08</i>) assembler and running in <a href="http://bochs.sourceforge.net/">Bochs</a> (<i>v2.6.8</i>) x86 emulator, my <i>bochsrc</a> files are also included in this repo.  Thinking about giving the <a href="http://wiki.qemu.org/Main_Page">Qemu</a> emulator a try soon.<br/>
 <br/>
 I am currently doing my code edits and builds through '<i>Sublime Text 2</i>' (v2.0.2) and since <tt>r9a2dda5</tt>, I've been using a custom build-run Sublime build system file which is included in this repo.
